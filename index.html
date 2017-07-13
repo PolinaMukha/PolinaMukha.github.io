@@ -29,7 +29,7 @@
   </head>
   <body>
     
-    <div class="main">
+    <div class="main parallax-window" data-parallax="scroll" data-speed="0.4" data-image-src="img/main-bg.jpg">
     <div class="main-overlay"></div>
     <div class="wrapper">
         <div class="main-header">
@@ -46,22 +46,22 @@
       <div class="container">
         <h2 class="section-header">Портфолио</h2>
         <div class="row">
-          <div class="col-lg-4">
+          <div class="col-md-4">
             <div class="portfolio-block">
             <img src="img/portfolio/1.jpg" alt="Работа №1">
-            <a data-toggle='modal' data-work='work-1' href="#work">Смотреть работу</a>
+            <a class="link cd-modal-trigger" data-work="work-1" href="#0">Смотреть работу</a>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-md-4">
             <div class="portfolio-block">
             <img src="img/portfolio/2.jpg" alt="Работа №2">
-            <a data-toggle='modal' data-work='work-2' href="#">Смотреть работу</a>
+            <a class="link cd-modal-trigger" data-work="work-3" href="#0">Смотреть работу</a>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-md-4">
             <div class="portfolio-block">
             <img src="img/portfolio/3.jpg" alt="Работа №3">
-            <a data-toggle='modal' data-work='work-3' data-toggle="modal" href="#work-1">Смотреть работу</a>
+            <a class="link cd-modal-trigger" data-work="work-3" href="#0">Смотреть работу</a>
             </div>
           </div>
         </div>
@@ -71,11 +71,11 @@
      <div class="footer">
      <div class="container">
       <div class="row">
-        <div class="col-lg-3">
+        <div class="col-md-3">
           <strong>Polina Mukha</strong>
           <p>Разработка сайтов <br>под ключ</p>
         </div>
-        <div class="col-lg-6">
+        <div class="col-md-6">
           <strong>Подпишитесь</strong>
           <div class="social-links">
             <a href="#"><i class="icon-vk"></i></a>
@@ -83,13 +83,29 @@
             <a href="#"><i class="icon-twitter"></i></a>
           </div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-md-3">
         <strong>Напишите мне</strong>
         <a href="https://vk.com/pollymalina" class="offer-btn">Заказать сайт</a>
         </div>
       </div>
       </div>
      </div>
+
+
+
+
+<div class="cd-modal">
+  <div class="modal-content">
+    
+  </div> <!-- .modal-content -->
+
+  <a href="#0" class="modal-close">Close</a>
+</div> <!-- .cd-modal -->
+
+<div class="cd-transition-layer"> 
+  <div class="bg-layer"></div>
+</div> <!-- .cd-transition-layer -->
+
 
     <!-- Модальные(Всплывающие) окна-->
       <!-- Modal -->
@@ -102,10 +118,10 @@
       </div>
       <div class="modal-body">
         <div class="row">
-          <div class="col-lg-5">
+          <div class="col-md-5">
             <img src="img/portfolio/1.jpg" alt="Первая работа">
           </div>
-          <div class="col-lg-7">
+          <div class="col-md-7">
             <h4>Сайт для кафе</h4>
             <p>Описание сайта</p>
             <a href="https://vk.com/pollymalina" class="modal-btn">Заказать сайт</a>
@@ -117,14 +133,15 @@
 </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/bootstrap.min.js"></script>-->
+    <script src="js/main.js"></script>
+    <script src="js/parallax.min.js"></script> 
     <script>
-      $(function(){
-        var link = $('a[data-toggle="modal"]');
-        link.on('click', function(event){
+      $(function() {
+        var link = $('.cd-modal-trigger');
+        link.on('click', function(event) {
         var work = $(this).attr('data-work');
-        var modal = $('.modal');
-        modal.find('.modal-body').load(work+'.html');
+        $('.modal-content').load(work+'.html');
        });
       });
     </script>
